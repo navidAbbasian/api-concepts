@@ -11,3 +11,5 @@ Route::get('polls/{id}' , [PollController::class, 'show']);
 Route::delete('polls/{id}',[PollController::class, 'delete']);
 
 Route::apiResource('questions', QuestionController::class);
+
+Route::get('polls/{poll}/questions', [PollController::class, 'question']);

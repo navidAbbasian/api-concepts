@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Question;
 
 class Poll extends Model
 {
@@ -12,4 +13,9 @@ class Poll extends Model
     protected $fillable = [
         'title'
     ];
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }

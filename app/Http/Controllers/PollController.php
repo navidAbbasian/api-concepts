@@ -6,6 +6,8 @@ use App\Models\Poll;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\Poll as PollResource;
+use App\Models\Question;
+use PhpParser\Node\Expr\BinaryOp\Pow;
 
 class PollController extends Controller
 {
@@ -40,5 +42,10 @@ class PollController extends Controller
     {
         $poll = Poll::find($id);
         $poll->delete();
+    }
+    public function question(Request $request, Poll $poll)
+    {
+        $questions = $poll->question;
+        return response()->json($questions, 200);
     }
 }
