@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\Validator;
 
 class PollController extends Controller
 {
-    public function store(Request $request)
+    public function store()
     {
-        $input = $request->all();
-        
-        $poll = Poll::create($request->all());
+        $attributes = request()->validate([
+            'title'=>'required|max:10'
+        ]);
+        $poll = Poll::create($attributes);
         return response()->json($poll, 201);
     }
     public function index()
