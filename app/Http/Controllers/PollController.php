@@ -45,7 +45,7 @@ class PollController extends Controller
     }
     public function question(Request $request, Poll $poll)
     {
-        $questions = $poll->question;
+        $questions = $poll->questions;
         return response()->json($questions, 200);
     }
 }
